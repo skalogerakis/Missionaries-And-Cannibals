@@ -1,11 +1,11 @@
 # Missionaries and Cannibals
-___
+
 
 My implementation of the problem missionaries and cannibals using Breadth First Search(BFS) algorithm.
 
 
 # Execution Steps 
-___
+
 
 - Go to /final folder
 - Simply execute java jar with file name **MissionariesCannibals**. For example execution in linux with the command 
@@ -14,20 +14,20 @@ $ java -jar MissionariesCannibals.jar
 ```
 
 # Java Preresiquites
-___
+
 The project is expected to run for every version above Java 8. Project build environment
 
-![ ](/final/images/1.png)
+![ ](./final/images/1.png)
 
 In my system the code was executed in the following enviroment and Java configurations
 - Java version
-![ ](/final/images/2.png)
+![ ](./final/images/2.png)
 
 - Javac version
-![ ](/final/images/3.png)
+![ ](./final/images/3.png)
 
 # Expected Execution 
-___
 
-![ ](/final/images/4.png)
+
+![ ](./final/images/4.png)
 
