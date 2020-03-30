@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_missionariescannibals" default="compile.module.missionariescannibals">
+  <dirname property="module.missionariescannibals.basedir" file="${ant.file.module_missionariescannibals}"/>
+  
+  <property name="module.jdk.home.missionariescannibals" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.missionariescannibals" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.missionariescannibals" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.missionariescannibals" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="missionariescannibals.output.dir" value="${module.missionariescannibals.basedir}/out/production/MissionariesCannibals"/>
+  <property name="missionariescannibals.testoutput.dir" value="${module.missionariescannibals.basedir}/out/test/MissionariesCannibals"/>
+  
+  <path id="missionariescannibals.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="missionariescannibals.module.production.classpath">
+    <path refid="${module.jdk.classpath.missionariescannibals}"/>
+  </path>
+  
+  <path id="missionariescannibals.runtime.production.module.classpath">
+    <pathelement location="${missionariescannibals.output.dir}"/>
+  </path>
+  
+  <path id="missionariescannibals.module.classpath">
+    <path refid="${module.jdk.classpath.missionariescannibals}"/>
+    <pathelement location="${missionariescannibals.output.dir}"/>
+  </path>
+  
+  <path id="missionariescannibals.runtime.module.classpath">
+    <pathelement location="${missionariescannibals.testoutput.dir}"/>
+    <pathelement location="${missionariescannibals.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.missionariescannibals">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.missionariescannibals">
+    <patternset refid="excluded.from.module.missionariescannibals"/>
+  </patternset>
+  
+  <path id="missionariescannibals.module.sourcepath">
+    <dirset dir="${module.missionariescannibals.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.missionariescannibals" depends="compile.module.missionariescannibals.production,compile.module.missionariescannibals.tests" description="Compile module MissionariesCannibals"/>
+  
+  <target name="compile.module.missionariescannibals.production" depends="register.custom.compilers" description="Compile module MissionariesCannibals; production classes">
+    <mkdir dir="${missionariescannibals.output.dir}"/>
+    <javac2 destdir="${missionariescannibals.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.missionariescannibals}/javac">
+      <compilerarg line="${compiler.args.missionariescannibals}"/>
+      <bootclasspath refid="missionariescannibals.module.bootclasspath"/>
+      <classpath refid="missionariescannibals.module.production.classpath"/>
+      <src refid="missionariescannibals.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.missionariescannibals"/>
+    </javac2>
+    
+    <copy todir="${missionariescannibals.output.dir}">
+      <fileset dir="${module.missionariescannibals.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.missionariescannibals.tests" depends="register.custom.compilers,compile.module.missionariescannibals.production" description="compile module MissionariesCannibals; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.missionariescannibals" description="cleanup module">
+    <delete dir="${missionariescannibals.output.dir}"/>
+    <delete dir="${missionariescannibals.testoutput.dir}"/>
+  </target>
+</project>

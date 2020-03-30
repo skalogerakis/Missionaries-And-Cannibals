@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MissionariesCannibals:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MissionariesCannibals_jar</output-path>
+    <root id="archive" name="MissionariesCannibals.jar">
+      <element id="module-output" name="MissionariesCannibals" />
+    </root>
+  </artifact>
+</component>
